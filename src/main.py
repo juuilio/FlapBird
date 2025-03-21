@@ -1,3 +1,11 @@
+#A FAZER:
+#   alterar a velocidade dos canos
+#   alterar a altura dos canos
+#   acrecentar pontuação
+#   adicionar som
+#   adicionar tela de game over
+#   adicionar tela de inicio
+#   hit box
 from random import randint
 import pygame
 pygame.init()
@@ -14,13 +22,14 @@ pygame.display.set_caption("Flappy Bird")
 janela_aberta = True
 canoInferior = pygame.image.load("src/assets/images/canoInferior.png")
 canoInferior = pygame.transform.scale(canoInferior, (80, 500))
-canoInferior_x = randint(360, 720) #15
-canoInferior_y = 0
+canoInferior_x = 360
+canoInferior_y = 300
+
 
 canoSuperior = pygame.image.load("src/assets/images/canoSuperior.png")
 canoSuperior = pygame.transform.scale(canoSuperior, (80, 500))
 canoSuperior_x = 360
-canoSuperior_y = 0
+canoSuperior_y = -300
 
 while janela_aberta:
     pygame.time.delay(50)
@@ -37,6 +46,8 @@ while janela_aberta:
         y += 10
 
     canoInferior_x -= 10
+    canoSuperior_x -= 10
+
     if canoInferior_x < -80:
         canoInferior_x = 360
     if canoSuperior_x < -80:
